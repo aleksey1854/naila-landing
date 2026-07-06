@@ -1,764 +1,347 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Наиля — консалтинг ресторанов и отелей</title>
-<meta name="description" content="Помогаю ресторанам и отелям расти: операционный аудит, меню-инжиниринг, стандарты сервиса, запуск под ключ. Работаю руками вместе с командой до результата.">
-<meta property="og:title" content="Наиля — консалтинг ресторанов и отелей">
-<meta property="og:description" content="Ресторан, который зарабатывает. Отель, который заполнен. Системно.">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231C1815'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23E8B4A0' text-anchor='middle'%3E%D0%9D%3C/text%3E%3C/svg%3E">
+<title>Switch on &amp; go — high end solutions in hospitality</title>
+<meta name="description" content="High end solutions in hospitality. Concept, operations and profit for hotels and restaurants that refuse to be ordinary.">
+<meta property="og:title" content="Switch on &amp; go">
+<meta property="og:description" content="High end solutions in hospitality.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230e0f11'/%3E%3Crect x='6' y='11' width='20' height='10' rx='5' fill='%23303438'/%3E%3Ccircle cx='21' cy='16' r='4' fill='%23e7b784'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1C1815;
-    --ink-2:#242019;
-    --ink-3:#2E271F;
-    --paper:#F2EBDD;
-    --paper-2:#E9E0CE;
-    --paper-3:#DED2BB;
-    --muted-dark:rgba(242,235,221,.60);
-    --muted-dark-2:rgba(242,235,221,.42);
-    --muted-light:#6E6357;
-    --muted-light-2:#8A7E6F;
-    --wine:#9A3D38;
-    --wine-bright:#B8534B;
-    --wine-deep:#742B29;
-    --line-dark:rgba(242,235,221,.14);
-    --line-light:rgba(28,24,21,.13);
-    --serif:'Lora',Georgia,'Times New Roman',serif;
-    --sans:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    --wrap:1180px;
-    --ease:cubic-bezier(.22,.61,.36,1);
+    --bg-0:#0c0d0f;
+    --bg-1:#17191c;
+    --bg-2:#212427;
+    --metal-hi:#e2e6ea;
+    --metal-mid:#9ca2a8;
+    --metal-lo:#565b60;
+    --metal-dark:#26292c;
+    --cool-text:#c7ccd1;
+    --cool-dim:rgba(199,204,209,.45);
+    --cool-faint:rgba(199,204,209,.26);
+    --warm:#E7B784;
+    --warm-bright:#F3D2A8;
+    --warm-deep:#C9945B;
+    --warm-text:#F0E7D8;
+    --sans:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    --ease:cubic-bezier(.4,.01,.16,1);
+    --ease-out:cubic-bezier(.16,1,.3,1);
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html,body{height:100%}
   body{
     font-family:var(--sans);
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.6;
+    background:var(--bg-0);
+    color:var(--cool-text);
     -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    overflow:hidden;
+    position:relative;
+    display:flex;flex-direction:column;
+    min-height:100dvh;
   }
-  ::selection{background:var(--wine);color:var(--paper)}
+  ::selection{background:var(--warm);color:#1a1200}
   a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
+  button{font-family:inherit;background:none;border:none;cursor:pointer;color:inherit}
 
-  /* grain */
-  body::before{
-    content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    mix-blend-mode:overlay;
+  /* ============ BACKGROUND LAYERS ============ */
+  .bg{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(120% 90% at 50% 42%, #24282c 0%, #16181b 46%, #0c0d0f 100%);
+    transition:background 1.6s var(--ease);
   }
-
-  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
-  @media(min-width:720px){.wrap{padding:0 40px}}
-
-  .eyebrow{
-    font-family:var(--sans);font-size:12px;font-weight:700;
-    letter-spacing:.22em;text-transform:uppercase;
-    display:inline-flex;align-items:center;gap:12px;
+  body.on .bg{
+    background:
+      radial-gradient(120% 95% at 50% 40%, #34302a 0%, #201d1a 48%, #100e0c 100%);
   }
-  .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.55;display:inline-block}
-  .eyebrow--wine{color:var(--wine)}
-  .on-dark .eyebrow{color:var(--wine-bright)}
-
-  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spacing:-.01em}
-  .display-1{font-size:clamp(2.7rem,7.2vw,5.4rem);font-weight:600}
-  .display-2{font-size:clamp(2rem,4.6vw,3.4rem)}
-  .display-2 em{font-style:italic;color:var(--wine)}
-  .on-dark .display-2 em{color:var(--wine-bright)}
-  em.hl{font-style:italic;color:var(--wine)}
-  .on-dark em.hl{color:var(--wine-bright)}
-
-  /* buttons */
-  .btn{
-    position:relative;display:inline-flex;align-items:center;gap:10px;
-    font-family:var(--sans);font-weight:700;font-size:.95rem;letter-spacing:.01em;
-    padding:16px 28px;border-radius:2px;cursor:pointer;border:1px solid transparent;
-    transition:transform .5s var(--ease),background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease);
-    overflow:hidden;white-space:nowrap;
+  /* vignette + grain */
+  .bg::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(140% 110% at 50% 44%, transparent 55%, rgba(0,0,0,.55) 100%);
   }
-  .btn svg{width:16px;height:16px;transition:transform .5s var(--ease)}
-  .btn--wine{background:var(--wine);color:var(--paper)}
-  .btn--wine:hover{background:var(--wine-deep);transform:translateY(-2px)}
-  .btn--wine:hover svg{transform:translateX(4px)}
-  .btn--ghost{background:transparent;color:var(--paper);border-color:var(--line-dark)}
-  .btn--ghost:hover{border-color:var(--paper);transform:translateY(-2px)}
-  .btn--ghost-dark{background:transparent;color:var(--ink);border-color:var(--line-light)}
-  .btn--ghost-dark:hover{border-color:var(--ink);transform:translateY(-2px)}
-  .btn:focus-visible{outline:2px solid var(--wine-bright);outline-offset:3px}
+  .grain{
+    position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* warm bloom that appears when ON */
+  .bloom{
+    position:fixed;left:50%;top:52%;transform:translate(-50%,-50%);z-index:1;pointer-events:none;
+    width:min(1100px,150vw);height:min(1100px,150vw);border-radius:50%;
+    background:radial-gradient(circle, rgba(231,183,132,.22) 0%, rgba(231,183,132,.10) 32%, transparent 62%);
+    opacity:0;transition:opacity 1.4s var(--ease);
+  }
+  body.on .bloom{opacity:1;animation:breathe 7s ease-in-out infinite 1.2s}
+  @keyframes breathe{0%,100%{opacity:.85}50%{opacity:1.05}}
 
   /* ============ HEADER ============ */
-  .site-header{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:20px 0;transition:background .5s var(--ease),padding .5s var(--ease),box-shadow .5s var(--ease);
+  header{
+    position:relative;z-index:5;
+    padding:34px 40px 0;
+    display:flex;flex-direction:column;gap:9px;
   }
-  .site-header.scrolled{background:rgba(242,235,221,.92);backdrop-filter:blur(12px);padding:12px 0;box-shadow:0 1px 0 var(--line-light)}
-  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-  .brand{display:flex;flex-direction:column;line-height:1;transition:color .4s var(--ease)}
-  .brand__name{font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:.02em}
-  .brand__role{font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;margin-top:5px;opacity:.7}
-  .site-header:not(.scrolled) .brand{color:var(--paper)}
-  .nav{display:none}
-  @media(min-width:960px){
-    .nav{display:flex;align-items:center;gap:34px}
-    .nav a{font-size:.9rem;font-weight:600;position:relative;padding:4px 0;transition:color .3s}
-    .nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--wine);transition:width .4s var(--ease)}
-    .nav a:hover::after{width:100%}
-    .site-header:not(.scrolled) .nav a{color:var(--paper)}
-    .site-header:not(.scrolled) .nav a::after{background:var(--wine-bright)}
+  @media(min-width:720px){header{padding:44px 56px 0}}
+  .wordmark{
+    font-family:var(--sans);font-weight:500;font-size:.98rem;
+    letter-spacing:.42em;text-transform:uppercase;
+    color:var(--cool-text);transition:color 1.2s var(--ease),text-shadow 1.2s var(--ease);
+    padding-left:.42em;
   }
-  .header-cta{display:none}
-  @media(min-width:720px){.header-cta{display:inline-flex;padding:12px 22px;font-size:.85rem}}
-  .site-header:not(.scrolled) .header-cta.btn--ghost-dark{color:var(--paper);border-color:var(--line-dark)}
-  .site-header:not(.scrolled) .header-cta.btn--ghost-dark:hover{border-color:var(--paper)}
-
-  .burger{display:flex;flex-direction:column;gap:5px;width:30px;height:22px;justify-content:center;cursor:pointer;background:none;border:none}
-  @media(min-width:960px){.burger{display:none}}
-  .burger span{display:block;height:2px;width:100%;background:var(--ink);transition:transform .4s var(--ease),opacity .3s}
-  .site-header:not(.scrolled) .burger span{background:var(--paper)}
-  .menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--paper)}
-  .menu-open .burger span:nth-child(2){opacity:0}
-  .menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:var(--paper)}
-
-  .mobile-nav{
-    position:fixed;inset:0;z-index:99;background:var(--ink);
-    display:flex;flex-direction:column;justify-content:center;gap:8px;padding:40px;
-    opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s;
+  body.on .wordmark{color:var(--warm-text);text-shadow:0 0 26px rgba(231,183,132,.35)}
+  .tagline{
+    font-family:var(--sans);font-weight:200;font-size:.82rem;
+    letter-spacing:.13em;color:var(--cool-dim);
+    transition:color 1.2s var(--ease);
   }
-  .menu-open .mobile-nav{opacity:1;visibility:visible}
-  .mobile-nav a{font-family:var(--serif);font-size:2rem;color:var(--paper);padding:12px 0;border-bottom:1px solid var(--line-dark);transition:color .3s,padding-left .4s var(--ease)}
-  .mobile-nav a:hover{color:var(--wine-bright);padding-left:12px}
-  .mobile-nav .btn{margin-top:24px;align-self:flex-start}
+  body.on .tagline{color:rgba(240,231,216,.62)}
 
-  /* ============ HERO ============ */
-  .hero{position:relative;background:var(--ink);color:var(--paper);padding:150px 0 90px;overflow:hidden}
-  .on-dark{color:var(--paper)}
-  .hero::after{content:"";position:absolute;top:-20%;right:-10%;width:60%;height:80%;background:radial-gradient(circle,rgba(154,61,56,.20),transparent 68%);pointer-events:none}
-  .hero-grid{display:grid;grid-template-columns:1fr;gap:56px;position:relative;z-index:2}
-  @media(min-width:960px){.hero-grid{grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:40px}}
+  /* ============ STAGE ============ */
+  main{
+    position:relative;z-index:5;flex:1;
+    display:flex;align-items:center;justify-content:center;
+    padding:30px 24px;
+  }
+  .stage{
+    width:100%;max-width:640px;display:flex;flex-direction:column;align-items:center;text-align:center;
+  }
 
-  .hero h1{margin:26px 0 0}
-  .hero h1 .line{display:block;overflow:hidden}
-  .hero h1 .line > span{display:block}
-  .hero__sub{font-size:clamp(1.02rem,1.5vw,1.18rem);color:var(--muted-dark);max-width:33em;margin-top:26px;line-height:1.68}
-  .hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
-  .hero__trust{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:46px;padding-top:26px;border-top:1px solid var(--line-dark)}
-  .hero__trust .t{display:flex;flex-direction:column;gap:3px}
-  .hero__trust .t b{font-family:var(--serif);font-size:1.55rem;font-weight:600}
-  .hero__trust .t span{font-size:.76rem;letter-spacing:.06em;color:var(--muted-dark-2);text-transform:uppercase}
+  /* revealed status + headline */
+  .kicker{
+    font-family:var(--mono);font-weight:400;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--cool-faint);display:flex;align-items:center;gap:11px;
+    transition:color 1s var(--ease);
+  }
+  .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--cool-faint);transition:background 1s var(--ease),box-shadow 1s var(--ease)}
+  body.on .kicker{color:rgba(231,183,132,.7)}
+  body.on .kicker .dot{background:var(--warm);box-shadow:0 0 12px var(--warm),0 0 4px var(--warm-bright)}
+  .kicker .status::after{content:"STANDBY"}
+  body.on .kicker .status::after{content:"LIVE"}
 
-  /* hero visual */
-  .hero-visual{position:relative;justify-self:center;width:100%;max-width:380px}
-  .portrait{
-    position:relative;aspect-ratio:4/4.7;
-    border-radius:190px 190px 8px 8px;overflow:hidden;
+  .head-wrap{
+    overflow:hidden;
+    max-height:0;opacity:0;
+    transition:max-height 1.1s var(--ease),opacity 1s var(--ease),margin 1.1s var(--ease);
+    margin:0;
+  }
+  body.on .head-wrap{max-height:340px;opacity:1;margin:22px 0 0}
+  .headline{
+    font-family:var(--sans);font-weight:300;font-size:clamp(2.1rem,5.6vw,3.5rem);
+    line-height:1.06;letter-spacing:-.01em;color:var(--warm-text);
+  }
+  .headline em{font-style:normal;font-weight:400;color:var(--warm-bright)}
+  .lede{
+    font-family:var(--sans);font-weight:300;font-size:clamp(.98rem,1.7vw,1.12rem);
+    line-height:1.62;color:rgba(240,231,216,.66);max-width:34em;margin:20px auto 0;
+  }
+
+  /* ============ THE SWITCH ============ */
+  .switch-zone{margin:46px 0 0;display:flex;flex-direction:column;align-items:center;gap:26px}
+  body.on .switch-zone{margin-top:40px}
+
+  .switch{
+    position:relative;padding:16px;border-radius:999px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .switch:focus-visible{outline:none}
+  .switch:focus-visible .track{box-shadow:0 0 0 3px rgba(231,183,132,.5), var(--track-shadow)}
+
+  .track{
+    --track-shadow:
+      inset 0 4px 12px rgba(0,0,0,.85),
+      inset 0 -2px 4px rgba(255,255,255,.06),
+      inset 0 0 0 1px rgba(0,0,0,.6),
+      0 2px 3px rgba(255,255,255,.04);
+    position:relative;display:block;
+    width:248px;height:98px;border-radius:999px;
+    background:linear-gradient(180deg,#1b1d20,#2b2f33 55%,#1d2023);
+    box-shadow:var(--track-shadow);
+    transition:background 1.1s var(--ease),box-shadow 1.1s var(--ease);
+  }
+  body.on .track{
+    background:linear-gradient(180deg,#4a3826,#6b4f30 55%,#432f1c);
+    box-shadow:
+      inset 0 4px 12px rgba(0,0,0,.6),
+      inset 0 -2px 5px rgba(255,214,160,.14),
+      inset 0 0 22px rgba(231,183,132,.4),
+      inset 0 0 0 1px rgba(120,80,40,.7),
+      0 0 34px rgba(231,183,132,.34);
+  }
+
+  .lbl{
+    position:absolute;top:50%;transform:translateY(-50%);
+    font-family:var(--mono);font-weight:500;font-size:.86rem;letter-spacing:.2em;
+    transition:color 1s var(--ease),opacity .8s var(--ease),text-shadow 1s var(--ease);
+  }
+  .lbl-off{right:30px;color:var(--cool-dim);opacity:1}
+  .lbl-on{left:32px;color:rgba(240,231,216,.35);opacity:0}
+  body.on .lbl-off{opacity:0}
+  body.on .lbl-on{opacity:1;color:var(--warm-bright);text-shadow:0 0 14px rgba(243,210,168,.7)}
+
+  .knob{
+    position:absolute;top:8px;left:8px;width:82px;height:82px;border-radius:50%;
     background:
-      radial-gradient(circle at 50% 32%,rgba(184,83,75,.32),transparent 60%),
-      linear-gradient(160deg,#332a22,#211c17 70%);
-    border:1px solid var(--line-dark);
+      radial-gradient(circle at 38% 32%, #f2f5f7 0%, #c3c8cd 30%, #8b9096 62%, #5c6166 100%);
+    box-shadow:
+      0 6px 14px rgba(0,0,0,.6),
+      0 2px 4px rgba(0,0,0,.5),
+      inset 0 2px 3px rgba(255,255,255,.7),
+      inset 0 -3px 6px rgba(0,0,0,.35);
+    transition:transform .62s var(--ease-out),box-shadow 1s var(--ease);
   }
-  .portrait::before{
-    content:"";position:absolute;inset:14px;border:1px solid rgba(184,83,75,.35);
-    border-radius:180px 180px 4px 4px;pointer-events:none;
+  /* spun-metal center ring */
+  .knob::before{
+    content:"";position:absolute;inset:16px;border-radius:50%;
+    background:
+      repeating-conic-gradient(from 0deg, #b9bec3 0deg 6deg, #cfd4d8 6deg 12deg);
+    box-shadow:inset 0 1px 2px rgba(255,255,255,.6),inset 0 -1px 3px rgba(0,0,0,.3);
+    opacity:.85;
   }
-  .portrait__icon{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;color:rgba(232,180,160,.5)}
-  .portrait__cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-dark-2)}
-  .result-card{
-    position:absolute;bottom:-26px;left:-18px;width:min(255px,82%);
-    background:var(--paper);color:var(--ink);border-radius:4px;padding:20px 22px;
-    box-shadow:0 24px 60px -18px rgba(0,0,0,.55);
+  .knob::after{
+    content:"";position:absolute;inset:30px;border-radius:50%;
+    background:radial-gradient(circle at 40% 35%, #eef1f3, #a7acb1 70%, #7f8489);
+    box-shadow:inset 0 1px 2px rgba(255,255,255,.8);
   }
-  @media(min-width:960px){.result-card{left:-46px}}
-  .result-card .rc-tag{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--wine)}
-  .result-card .rc-name{font-family:var(--serif);font-size:1.12rem;margin:6px 0 14px;line-height:1.2}
-  .result-card .rc-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.86rem;padding:7px 0;border-top:1px solid var(--line-light)}
-  .result-card .rc-row b{font-family:var(--serif);font-size:1.25rem;color:var(--wine)}
-  .result-card .rc-note{font-size:.68rem;color:var(--muted-light-2);margin-top:12px;letter-spacing:.04em}
-
-  /* ============ SERVICES / MENU ============ */
-  .section-pad{padding:96px 0}
-  @media(min-width:720px){.section-pad{padding:128px 0}}
-  .menu-sec{background:var(--paper)}
-  .sec-head{max-width:640px;margin-bottom:56px}
-  .sec-head h2{margin:20px 0 0}
-  .sec-head p{color:var(--muted-light);font-size:1.05rem;margin-top:20px;line-height:1.68}
-
-  .menu-list{border-top:1px solid var(--line-light)}
-  .menu-item{
-    display:grid;grid-template-columns:1fr;gap:6px;
-    padding:28px 0;border-bottom:1px solid var(--line-light);
-    position:relative;transition:padding-left .5s var(--ease);
-  }
-  @media(min-width:720px){
-    .menu-item{grid-template-columns:auto 1fr auto;column-gap:20px;align-items:baseline;padding:30px 0}
-    .menu-item:hover{padding-left:14px}
-  }
-  .menu-item__num{font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--wine);letter-spacing:.05em;padding-top:6px}
-  .menu-item__body{grid-column:2}
-  .menu-item__name{font-family:var(--serif);font-size:1.5rem;font-weight:600;transition:color .3s}
-  .menu-item:hover .menu-item__name{color:var(--wine)}
-  .menu-item__desc{color:var(--muted-light);font-size:.96rem;margin-top:8px;max-width:52ch;line-height:1.62}
-  .menu-item__out{
-    font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--ink);
-    display:inline-flex;align-items:center;gap:9px;white-space:nowrap;padding-top:6px;
-  }
-  .menu-item__out::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--wine);flex:none}
-  @media(max-width:719px){
-    .menu-item__num{grid-column:1;padding-top:0}
-    .menu-item__out{margin-top:12px}
+  body.on .knob{
+    transform:translateX(150px);
+    box-shadow:
+      0 6px 16px rgba(0,0,0,.55),
+      0 0 26px rgba(231,183,132,.5),
+      inset 0 2px 3px rgba(255,255,255,.7),
+      inset 0 -3px 6px rgba(120,70,20,.3);
   }
 
-  /* ============ APPROACH ============ */
-  .approach{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
-  .approach::after{content:"";position:absolute;bottom:-30%;left:-8%;width:50%;height:70%;background:radial-gradient(circle,rgba(154,61,56,.16),transparent 68%);pointer-events:none}
-  .approach .sec-head p{color:var(--muted-dark)}
-  .steps{display:grid;grid-template-columns:1fr;gap:2px;position:relative;z-index:2}
-  @media(min-width:720px){.steps{grid-template-columns:repeat(2,1fr)}}
-  @media(min-width:1040px){.steps{grid-template-columns:repeat(4,1fr)}}
-  .step{padding:34px 30px 40px;border:1px solid var(--line-dark);background:rgba(242,235,221,.015);transition:background .4s var(--ease)}
-  .step:hover{background:rgba(242,235,221,.045)}
-  .step__num{font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--wine-bright);line-height:1}
-  .step__title{font-family:var(--serif);font-size:1.28rem;margin:18px 0 12px}
-  .step__text{color:var(--muted-dark);font-size:.92rem;line-height:1.62}
-
-  /* ============ RESULTS ============ */
-  .results{background:var(--paper-2)}
-  .cases{display:grid;grid-template-columns:1fr;gap:22px}
-  @media(min-width:720px){.cases{grid-template-columns:repeat(3,1fr)}}
-  .case{
-    background:var(--paper);border:1px solid var(--line-light);border-radius:5px;
-    padding:32px 28px 30px;display:flex;flex-direction:column;
-    transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+  .prompt{
+    font-family:var(--mono);font-weight:400;font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--cool-dim);display:flex;align-items:center;gap:10px;
+    transition:opacity .7s var(--ease);
   }
-  .case:hover{transform:translateY(-5px);box-shadow:0 26px 50px -26px rgba(28,24,21,.32)}
-  .case__label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-light-2)}
-  .case__stats{margin:22px 0 20px;display:flex;flex-direction:column;gap:16px}
-  .case__stat{display:flex;flex-direction:column;gap:3px}
-  .case__stat b{font-family:var(--serif);font-size:2.5rem;font-weight:600;color:var(--wine);line-height:1}
-  .case__stat span{font-size:.84rem;color:var(--muted-light)}
-  .case__text{font-size:.92rem;color:var(--muted-light);line-height:1.6;margin-top:auto;padding-top:18px;border-top:1px solid var(--line-light)}
-  .results__note{margin-top:34px;font-size:.9rem;color:var(--muted-light-2);max-width:60ch;line-height:1.6}
+  .prompt .blip{width:6px;height:6px;border-radius:50%;background:var(--warm);box-shadow:0 0 10px var(--warm);animation:blink 1.9s ease-in-out infinite}
+  @keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+  body.on .prompt{opacity:0;pointer-events:none}
 
-  /* ============ ABOUT ============ */
-  .about{background:var(--ink);color:var(--paper);overflow:hidden}
-  .about-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
-  @media(min-width:900px){.about-grid{grid-template-columns:.8fr 1.2fr;gap:64px}}
-  .about-portrait{
-    position:relative;aspect-ratio:4/4.9;max-width:360px;width:100%;justify-self:center;
-    border-radius:8px;overflow:hidden;
-    background:radial-gradient(circle at 50% 34%,rgba(184,83,75,.28),transparent 62%),linear-gradient(160deg,#332a22,#201b16 72%);
-    border:1px solid var(--line-dark);
+  /* ============ CONTACTS (reveal on ON) ============ */
+  .contacts{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;
+    max-height:0;opacity:0;overflow:hidden;
+    transition:max-height 1.1s var(--ease) .1s,opacity 1s var(--ease) .2s,margin 1.1s var(--ease);
+    margin:0;
   }
-  .about-portrait::before{content:"";position:absolute;inset:0;border:1px solid rgba(184,83,75,.22);margin:14px;border-radius:4px;pointer-events:none}
-  .about-portrait__icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;color:rgba(232,180,160,.42)}
-  .about-portrait__cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-dark-2)}
-  .about h2{margin:20px 0 24px}
-  .about p{color:var(--muted-dark);font-size:1.04rem;line-height:1.72;margin-bottom:18px;max-width:54ch}
-  .about p em{color:var(--paper);font-style:italic}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-  .chip{font-size:.8rem;font-weight:600;padding:9px 16px;border:1px solid var(--line-dark);border-radius:40px;color:var(--muted-dark)}
-
-  /* ============ QUOTES ============ */
-  .quotes{background:var(--paper)}
-  .quotes-grid{display:grid;grid-template-columns:1fr;gap:26px}
-  @media(min-width:820px){.quotes-grid{grid-template-columns:repeat(2,1fr)}}
-  .quote{background:var(--paper-2);border-radius:6px;padding:40px 36px;position:relative}
-  .quote__mark{font-family:var(--serif);font-size:4.5rem;color:var(--wine);opacity:.28;line-height:.6;height:34px}
-  .quote__text{font-family:var(--serif);font-size:1.32rem;line-height:1.5;font-style:italic;margin:6px 0 26px}
-  .quote__who{display:flex;flex-direction:column;gap:2px}
-  .quote__who b{font-weight:700;font-size:.92rem}
-  .quote__who span{font-size:.82rem;color:var(--muted-light-2)}
-
-  /* ============ CTA / FORM ============ */
-  .cta{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
-  .cta::after{content:"";position:absolute;top:-20%;right:-5%;width:55%;height:90%;background:radial-gradient(circle,rgba(154,61,56,.20),transparent 66%);pointer-events:none}
-  .cta-grid{display:grid;grid-template-columns:1fr;gap:48px;position:relative;z-index:2}
-  @media(min-width:900px){.cta-grid{grid-template-columns:1fr 1fr;gap:72px;align-items:start}}
-  .cta h2{margin:22px 0 22px}
-  .cta__lead{color:var(--muted-dark);font-size:1.08rem;line-height:1.7;max-width:40ch}
-  .cta__direct{margin-top:34px;display:flex;flex-direction:column;gap:14px}
-  .cta__direct a{display:inline-flex;align-items:center;gap:12px;font-size:1rem;font-weight:600;transition:color .3s,gap .4s var(--ease)}
-  .cta__direct a:hover{color:var(--wine-bright);gap:16px}
-  .cta__direct svg{width:19px;height:19px;color:var(--wine-bright)}
-
-  .lead-form{background:rgba(242,235,221,.04);border:1px solid var(--line-dark);border-radius:8px;padding:32px 28px}
-  @media(min-width:720px){.lead-form{padding:38px 34px}}
-  .field{margin-bottom:20px}
-  .field label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-dark);margin-bottom:9px}
-  .field input,.field textarea{
-    width:100%;background:rgba(242,235,221,.05);border:1px solid var(--line-dark);border-radius:3px;
-    padding:14px 16px;font-family:var(--sans);font-size:1rem;color:var(--paper);transition:border-color .3s,background .3s;
+  body.on .contacts{max-height:160px;opacity:1;margin:40px 0 0}
+  .contact{
+    display:flex;flex-direction:column;gap:5px;text-align:left;
+    transform:translateX(-16px);opacity:0;transition:transform .9s var(--ease-out),opacity .9s var(--ease);
   }
-  .field input::placeholder,.field textarea::placeholder{color:var(--muted-dark-2)}
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--wine-bright);background:rgba(242,235,221,.08)}
-  .field textarea{resize:vertical;min-height:92px}
-  .field input.invalid,.field textarea.invalid{border-color:var(--wine-bright)}
-  .lead-form .btn{width:100%;justify-content:center;margin-top:6px}
-  .form-note{font-size:.78rem;color:var(--muted-dark-2);margin-top:16px;text-align:center;line-height:1.5}
+  body.on .contact{transform:none;opacity:1}
+  body.on .contact:nth-child(1){transition-delay:.4s}
+  body.on .contact:nth-child(2){transition-delay:.52s}
+  body.on .contact:nth-child(3){transition-delay:.64s}
+  .contact .c-label{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(231,183,132,.6)}
+  .contact .c-value{font-family:var(--sans);font-weight:300;font-size:1.06rem;color:var(--warm-text);transition:color .3s}
+  a.contact:hover .c-value{color:var(--warm-bright)}
 
   /* ============ FOOTER ============ */
-  .site-footer{background:var(--ink-2);color:var(--paper);padding:70px 0 34px}
-  .footer-top{display:grid;grid-template-columns:1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line-dark)}
-  @media(min-width:820px){.footer-top{grid-template-columns:1.4fr 1fr 1fr}}
-  .footer-brand .brand__name{font-size:1.9rem}
-  .footer-brand p{color:var(--muted-dark);font-size:.94rem;margin-top:18px;max-width:32ch;line-height:1.6}
-  .footer-col h4{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-dark-2);margin-bottom:20px}
-  .footer-col a,.footer-col p{display:block;color:var(--muted-dark);font-size:.94rem;margin-bottom:12px;transition:color .3s}
-  .footer-col a:hover{color:var(--paper)}
-  .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;padding-top:28px;font-size:.82rem;color:var(--muted-dark-2)}
-  .footer-bottom a{color:var(--muted-dark)}
-  .footer-bottom a:hover{color:var(--wine-bright)}
+  footer{
+    position:relative;z-index:5;
+    padding:0 40px 30px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--cool-faint);
+  }
+  @media(min-width:720px){footer{padding:0 56px 34px}}
+  footer .dom{text-transform:lowercase;letter-spacing:.16em;transition:color 1s var(--ease)}
+  body.on footer .dom{color:rgba(231,183,132,.55)}
+  footer a:hover{color:var(--warm)}
 
-  /* ============ reveal animation ============ */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-  .reveal.in{opacity:1;transform:none}
-  .reveal[data-d="1"]{transition-delay:.08s}
-  .reveal[data-d="2"]{transition-delay:.16s}
-  .reveal[data-d="3"]{transition-delay:.24s}
-  .reveal[data-d="4"]{transition-delay:.32s}
-  .reveal[data-d="5"]{transition-delay:.4s}
-
-  /* hero load */
-  .hl-anim{opacity:0;transform:translateY(26px);animation:heroUp .95s var(--ease) forwards}
-  .hl-anim.d1{animation-delay:.1s}.hl-anim.d2{animation-delay:.22s}.hl-anim.d3{animation-delay:.34s}
-  .hl-anim.d4{animation-delay:.46s}.hl-anim.d5{animation-delay:.58s}.hl-anim.d6{animation-delay:.72s}
-  @keyframes heroUp{to{opacity:1;transform:none}}
+  @media(max-width:600px){
+    header{padding:26px 24px 0}
+    footer{padding:0 24px 24px}
+    .track{width:212px;height:86px}
+    .knob{width:70px;height:70px}
+    body.on .knob{transform:translateX(126px)}
+    .lbl-off{right:24px}.lbl-on{left:26px}
+    .contacts{gap:14px 26px}
+  }
 
   @media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .reveal,.hl-anim{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
-    *{transition-duration:.001s!important}
+    *{transition-duration:.001s!important;animation:none!important}
+    .head-wrap,.contacts{transition:none!important}
   }
 </style>
 </head>
-<body>
+<body class="off">
+  <div class="bg"></div>
+  <div class="grain"></div>
+  <div class="bloom"></div>
 
-<!-- ============ HEADER ============ -->
-<header class="site-header" id="header">
-  <div class="wrap header-inner">
-    <a href="#top" class="brand" aria-label="Наиля — консалтинг ресторанов и отелей">
-      <span class="brand__name">Наиля</span>
-      <span class="brand__role">Консалтинг ресторанов и отелей</span>
-    </a>
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="#services">Услуги</a>
-      <a href="#approach">Подход</a>
-      <a href="#results">Результаты</a>
-      <a href="#about">Обо мне</a>
-    </nav>
-    <a href="#contact" class="btn btn--ghost-dark header-cta">Обсудить проект</a>
-    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+  <header>
+    <div class="wordmark">Switch&nbsp;on&nbsp;&amp;&nbsp;go</div>
+    <div class="tagline">High end solutions in hospitality</div>
+  </header>
 
-<nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
-  <a href="#services">Услуги</a>
-  <a href="#approach">Подход</a>
-  <a href="#results">Результаты</a>
-  <a href="#about">Обо мне</a>
-  <a href="#contact">Контакты</a>
-  <a href="#contact" class="btn btn--wine">Обсудить проект →</a>
-</nav>
+  <main>
+    <div class="stage">
+      <p class="kicker"><span class="dot"></span>System · <span class="status"></span></p>
 
-<!-- ============ HERO ============ -->
-<main id="top">
-<section class="hero on-dark">
-  <div class="wrap hero-grid">
-    <div class="hero__copy">
-      <span class="eyebrow hl-anim d1">HoReCa-консалтинг · 12 лет в индустрии</span>
-      <h1>
-        <span class="hl-anim d2">Ресторан, который <em class="hl">зарабатывает</em>.</span>
-        <span class="hl-anim d3">Отель, который <em class="hl">заполнен</em>.</span>
-      </h1>
-      <p class="hero__sub hl-anim d4">
-        Навожу порядок в операционке, пересобираю меню под маржу и выстраиваю сервис как систему —
-        чтобы выручка росла, а не утекала. Работаю руками рядом с вашей командой, а не в виде
-        презентации, которая ляжет на полку.
-      </p>
-      <div class="hero__cta hl-anim d5">
-        <a href="#contact" class="btn btn--wine">Обсудить проект
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#results" class="btn btn--ghost">Смотреть результаты</a>
-      </div>
-      <div class="hero__trust hl-anim d6">
-        <div class="t"><b>12 лет</b><span>в ресторанах и&nbsp;отелях</span></div>
-        <div class="t"><b>40+</b><span>проектов</span></div>
-        <div class="t"><b data-count="30" data-prefix="+" data-suffix="%">+30%</b><span>выручки в&nbsp;среднем</span></div>
-      </div>
-    </div>
-
-    <div class="hero-visual hl-anim d4">
-      <div class="portrait" role="img" aria-label="Фотография Наили — здесь будет портрет">
-        <svg class="portrait__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M3 11a9 9 0 0 1 18 0" stroke-linecap="round"/><path d="M2 11h20" stroke-linecap="round"/>
-          <path d="M12 11V6" stroke-linecap="round"/><circle cx="12" cy="4.5" r="1.2"/>
-          <path d="M7 15h10M8 18h8" stroke-linecap="round" opacity=".6"/>
-        </svg>
-        <span class="portrait__cap">Фото Наили</span>
-      </div>
-      <div class="result-card">
-        <div class="rc-tag">Как пример</div>
-        <div class="rc-name">Ресторан авторской кухни</div>
-        <div class="rc-row"><span>Выручка</span><b data-count="38" data-prefix="+" data-suffix="%">+38%</b></div>
-        <div class="rc-row"><span>Food cost</span><b>34 → 27%</b></div>
-        <div class="rc-note">за 4 месяца работы</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES / MENU ============ -->
-<section class="menu-sec section-pad" id="services">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow eyebrow--wine">Меню услуг</span>
-      <h2 class="display-2">Что я делаю</h2>
-      <p>Знакомо: кассовые разрывы, текучка, меню без маржи, сервис «как получится».
-        Это чинится — системно и по шагам. Ниже — из чего складывается работа.</p>
-    </div>
-
-    <div class="menu-list">
-      <div class="menu-item reveal">
-        <div class="menu-item__num">01</div>
-        <div class="menu-item__body">
-          <div class="menu-item__name">Запуск «под ключ»</div>
-          <div class="menu-item__desc">Концепция, финмодель, меню, команда и стандарты — собираю новый ресторан или отель так, чтобы он вышел на окупаемость по плану, а не «как пойдёт».</div>
-        </div>
-        <div class="menu-item__out">от идеи до открытия</div>
+      <div class="head-wrap">
+        <h1 class="headline">Hospitality, <em>switched on</em>.</h1>
+        <p class="lede">The strategy, systems and polish that turn a venue into a destination.</p>
       </div>
 
-      <div class="menu-item reveal">
-        <div class="menu-item__num">02</div>
-        <div class="menu-item__body">
-          <div class="menu-item__name">Операционный аудит</div>
-          <div class="menu-item__desc">Разбираю закупки, себестоимость, смены, списания и загрузку. На выходе — список точек роста с суммой напротив каждой.</div>
-        </div>
-        <div class="menu-item__out">нахожу, где течёт прибыль</div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-item__num">03</div>
-        <div class="menu-item__body">
-          <div class="menu-item__name">Меню-инжиниринг</div>
-          <div class="menu-item__desc">Пересобираю меню по food cost и популярности: что оставить, что убрать, что поднять в цене. Каждая позиция начинает работать на прибыль.</div>
-        </div>
-        <div class="menu-item__out">маржа вместо интуиции</div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-item__num">04</div>
-        <div class="menu-item__body">
-          <div class="menu-item__name">Стандарты и сервис</div>
-          <div class="menu-item__desc">Прописываю стандарты обслуживания и регламенты кухни и зала. Гость получает одинаково хорошо и при вас, и без вас.</div>
-        </div>
-        <div class="menu-item__out">сервис как система</div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-item__num">05</div>
-        <div class="menu-item__body">
-          <div class="menu-item__name">Команда: подбор и обучение</div>
-          <div class="menu-item__desc">Подбираю и обучаю — от линейного персонала до управляющих. Ставлю мотивацию, при которой команде выгодно, чтобы заведение зарабатывало.</div>
-        </div>
-        <div class="menu-item__out">люди, которые не разбегаются</div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-item__num">06</div>
-        <div class="menu-item__body">
-          <div class="menu-item__name">Автоматизация · iiko / r_keeper</div>
-          <div class="menu-item__desc">Настраиваю учёт, склад и аналитику. Себестоимость, остатки и выручку видно в реальном времени — решения принимаются по данным, а не на глаз.</div>
-        </div>
-        <div class="menu-item__out">цифры онлайн, а не в тетради</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ APPROACH ============ -->
-<section class="approach section-pad on-dark" id="approach">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Как я работаю</span>
-      <h2 class="display-2">Четыре шага — <em>а не бесконечная презентация</em></h2>
-      <p>Порядок работы одинаковый и для запуска, и для действующего заведения. Вы всегда понимаете, на каком этапе мы находимся и зачем.</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal" data-d="1">
-        <div class="step__num">01</div>
-        <div class="step__title">Диагностика</div>
-        <div class="step__text">Погружаюсь в бизнес: цифры, смены, кухня, зал, гость. Смотрю, как всё работает на самом деле, а не на бумаге.</div>
-      </div>
-      <div class="step reveal" data-d="2">
-        <div class="step__num">02</div>
-        <div class="step__title">Стратегия</div>
-        <div class="step__text">Составляю план изменений с приоритетами и ожидаемым эффектом в деньгах. Вы понимаете, что, зачем и в каком порядке.</div>
-      </div>
-      <div class="step reveal" data-d="3">
-        <div class="step__num">03</div>
-        <div class="step__title">Внедрение</div>
-        <div class="step__text">Работаю руками вместе с командой: меню, стандарты, закупки, обучение. Не оставляю вас наедине с рекомендациями.</div>
-      </div>
-      <div class="step reveal" data-d="4">
-        <div class="step__num">04</div>
-        <div class="step__title">Контроль и результат</div>
-        <div class="step__text">Замеряю до и после, докручиваю. Вы остаётесь с системой, которая держит результат и без меня.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ RESULTS ============ -->
-<section class="results section-pad" id="results">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow eyebrow--wine">Результаты</span>
-      <h2 class="display-2">Цифры, а не обещания</h2>
-    </div>
-    <div class="cases">
-      <div class="case reveal" data-d="1">
-        <div class="case__label">Ресторан авторской кухни</div>
-        <div class="case__stats">
-          <div class="case__stat"><b data-count="38" data-prefix="+" data-suffix="%">+38%</b><span>выручки за 4 месяца</span></div>
-          <div class="case__stat"><b>34 → 27%</b><span>food cost</span></div>
-        </div>
-        <p class="case__text">Пересобрали меню и закупки, поставили стандарты зала — заведение перестало терять на списаниях и слабых позициях.</p>
-      </div>
-      <div class="case reveal" data-d="2">
-        <div class="case__label">Сеть кофеен · 5 точек</div>
-        <div class="case__stats">
-          <div class="case__stat"><b data-count="22" data-prefix="+" data-suffix="%">+22%</b><span>прибыли</span></div>
-          <div class="case__stat"><b data-count="40" data-prefix="−" data-suffix="%">−40%</b><span>списаний</span></div>
-        </div>
-        <p class="case__text">Автоматизировали учёт и склад, убрали пересортицу и воровство. Владелец впервые увидел реальную экономику каждой точки.</p>
-      </div>
-      <div class="case reveal" data-d="3">
-        <div class="case__label">Бутик-отель · 28 номеров</div>
-        <div class="case__stats">
-          <div class="case__stat"><b data-count="22" data-prefix="+" data-suffix=" п.п.">+22 п.п.</b><span>загрузки</span></div>
-          <div class="case__stat"><b data-count="15" data-prefix="+" data-suffix="%">+15%</b><span>средний чек ресторана</span></div>
-        </div>
-        <p class="case__text">Связали отель и ресторан в один клиентский путь — гость стал оставаться на ужин, а не уходить есть в город.</p>
-      </div>
-    </div>
-    <p class="results__note">Цифры — по реальным проектам. Названия заведений под NDA, детали и механику разберу на первой встрече.</p>
-  </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section class="about section-pad on-dark" id="about">
-  <div class="wrap about-grid">
-    <div class="about-portrait reveal" role="img" aria-label="Портрет Наили — здесь будет фотография">
-      <svg class="about-portrait__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-        <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke-linecap="round"/>
-      </svg>
-      <span class="about-portrait__cap">Фото Наили</span>
-    </div>
-    <div class="reveal" data-d="1">
-      <span class="eyebrow">Обо мне</span>
-      <h2 class="display-2">Меня зовут Наиля</h2>
-      <p>12 лет в ресторанах и отелях — прошла путь от зала до операционного управления. Запускала заведения с нуля, вытаскивала из минуса действующие, строила команды и стандарты.</p>
-      <p>Знаю индустрию не по учебникам, а изнутри — с кухни, из зала и из отчёта о прибылях и убытках. <em>Консалтинг для меня — это не советы со стороны, а работа руками рядом с вами до результата.</em></p>
-      <div class="chips">
-        <span class="chip">Запуск с нуля</span>
-        <span class="chip">Антикризис</span>
-        <span class="chip">Сети и одиночные проекты</span>
-        <span class="chip">iiko / r_keeper</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ QUOTES ============ -->
-<section class="quotes section-pad">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow eyebrow--wine">Отзывы</span>
-      <h2 class="display-2">Что говорят клиенты</h2>
-    </div>
-    <div class="quotes-grid">
-      <figure class="quote reveal" data-d="1">
-        <div class="quote__mark">“</div>
-        <blockquote class="quote__text">Наиля за три месяца сделала то, что мы не могли полгода: меню перестало быть свалкой, а команда — текучкой. Выручка выросла, и я наконец сплю.</blockquote>
-        <figcaption class="quote__who"><b>Владелец ресторана</b><span>название под NDA</span></figcaption>
-      </figure>
-      <figure class="quote reveal" data-d="2">
-        <div class="quote__mark">“</div>
-        <blockquote class="quote__text">Пришла навести порядок в одном ресторане — осталась выстраивать всю сеть. Тот случай, когда консультант реально в деле, а не в презентации.</blockquote>
-        <figcaption class="quote__who"><b>Управляющий сети кофеен</b><span>название под NDA</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CTA / FORM ============ -->
-<section class="cta section-pad on-dark" id="contact">
-  <div class="wrap cta-grid">
-    <div class="reveal">
-      <span class="eyebrow">Первый шаг</span>
-      <h2 class="display-2">Обсудим ваш проект</h2>
-      <p class="cta__lead">Расскажите, что происходит с вашим заведением. Первая встреча — бесплатная: посмотрю на ситуацию и честно скажу, где деньги и стоит ли вообще что-то менять.</p>
-      <div class="cta__direct">
-        <a href="https://wa.me/79037842628" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.3.3-.1.5.1.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.8.9c.2.1.4.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
-          WhatsApp · +7 903 784-26-28
-        </a>
-        <a href="tel:+79037842628">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-          Позвонить
-        </a>
-      </div>
-    </div>
-
-    <div class="lead-form reveal" data-d="1">
-      <form id="leadForm" novalidate>
-        <div class="field">
-          <label for="lf-name">Как вас зовут</label>
-          <input type="text" id="lf-name" name="name" placeholder="Имя" autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="lf-phone">Телефон или WhatsApp</label>
-          <input type="tel" id="lf-phone" name="phone" placeholder="+7 ___ ___ __ __" autocomplete="tel">
-        </div>
-        <div class="field">
-          <label for="lf-msg">Что за заведение и что беспокоит <span style="text-transform:none;font-weight:400;opacity:.6">— по желанию</span></label>
-          <textarea id="lf-msg" name="msg" placeholder="Например: ресторан на 60 посадок, выручка стоит, не понимаю куда уходят деньги"></textarea>
-        </div>
-        <button type="submit" class="btn btn--wine">Оставить заявку
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="switch-zone">
+        <button class="switch" id="switch" role="switch" aria-checked="false" aria-label="Switch on">
+          <span class="track">
+            <span class="lbl lbl-off">OFF</span>
+            <span class="lbl lbl-on">ON</span>
+            <span class="knob"></span>
+          </span>
         </button>
-        <p class="form-note">Нажимая кнопку, вы открываете чат в WhatsApp с уже заполненным сообщением — останется только отправить.</p>
-      </form>
-    </div>
-  </div>
-</section>
-</main>
+        <p class="prompt"><span class="blip"></span>Switch on</p>
+      </div>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="brand__name" style="font-family:var(--serif)">Наиля</div>
-        <p>Консалтинг ресторанов и отелей. Делаю заведения прибыльными и системными — руками, до результата.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Разделы</h4>
-        <a href="#services">Услуги</a>
-        <a href="#approach">Подход</a>
-        <a href="#results">Результаты</a>
-        <a href="#about">Обо мне</a>
-      </div>
-      <div class="footer-col">
-        <h4>Контакты</h4>
-        <a href="https://wa.me/79037842628" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="tel:+79037842628">+7 903 784-26-28</a>
-        <p>Работаю удалённо и на площадке</p>
+      <div class="contacts">
+        <a class="contact" href="tel:+79037842628">
+          <span class="c-label">Call</span>
+          <span class="c-value">+7 903 784 26 28</span>
+        </a>
+        <a class="contact" href="https://wa.me/79037842628" target="_blank" rel="noopener">
+          <span class="c-label">WhatsApp</span>
+          <span class="c-value">Message us</span>
+        </a>
+        <a class="contact" href="mailto:hello@switchonandgo.com">
+          <span class="c-label">Email</span>
+          <span class="c-value">hello@switchonandgo.com</span>
+        </a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Наиля · Консалтинг ресторанов и отелей</span>
-      <span>Разработка сайта — <a href="https://t.me/aleksey1854" target="_blank" rel="noopener">@aleksey1854</a></span>
-    </div>
-  </div>
-</footer>
+  </main>
+
+  <footer>
+    <span class="dom">switchonandgo.com</span>
+    <span>© <span id="year"></span> · Made by <a href="https://t.me/aleksey1854" target="_blank" rel="noopener">@aleksey1854</a></span>
+  </footer>
 
 <script>
 (function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* header scroll state */
-  var header = document.getElementById('header');
-  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 40); }
-  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
-
-  /* mobile menu */
-  var burger = document.getElementById('burger');
   var body = document.body;
-  function closeMenu(){ body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); }
-  burger.addEventListener('click', function(){
-    var open = body.classList.toggle('menu-open');
-    burger.setAttribute('aria-expanded', open ? 'true':'false');
-  });
-  document.querySelectorAll('#mobileNav a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  var sw = document.getElementById('switch');
 
-  /* reveal on scroll */
-  var reveals = document.querySelectorAll('.reveal');
-  if(reduce){
-    reveals.forEach(function(el){ el.classList.add('in'); });
-  } else if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
-    reveals.forEach(function(el){ io.observe(el); });
-  } else {
-    reveals.forEach(function(el){ el.classList.add('in'); });
+  function toggle(){
+    var on = body.classList.toggle('on');
+    body.classList.toggle('off', !on);
+    sw.setAttribute('aria-checked', on ? 'true' : 'false');
+    sw.setAttribute('aria-label', on ? 'Switch off' : 'Switch on');
   }
 
-  /* count-up */
-  function animateCount(el){
-    var to = parseFloat(el.getAttribute('data-count'));
-    var prefix = el.getAttribute('data-prefix') || '';
-    var suffix = el.getAttribute('data-suffix') || '';
-    if(reduce){ el.textContent = prefix + to + suffix; return; }
-    var start = null, dur = 1400;
-    function step(ts){
-      if(!start) start = ts;
-      var p = Math.min((ts-start)/dur, 1);
-      var eased = 1 - Math.pow(1-p, 3);
-      var val = Math.round(to * eased);
-      el.textContent = prefix + val + suffix;
-      if(p < 1) requestAnimationFrame(step);
+  sw.addEventListener('click', toggle);
+  sw.addEventListener('keydown', function(e){
+    if(e.key === ' ' || e.key === 'Enter' || e.code === 'Space'){
+      e.preventDefault();
+      toggle();
     }
-    requestAnimationFrame(step);
-  }
-  var counters = document.querySelectorAll('[data-count]');
-  if('IntersectionObserver' in window && !reduce){
-    var co = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ animateCount(e.target); co.unobserve(e.target); }
-      });
-    }, {threshold:.6});
-    counters.forEach(function(el){ co.observe(el); });
-  } else {
-    counters.forEach(animateCount);
-  }
-
-  /* lead form -> whatsapp */
-  var form = document.getElementById('leadForm');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = form.name.value.trim();
-    var phone = form.phone.value.trim();
-    var msg = form.msg.value.trim();
-    var ok = true;
-    [['name',name],['phone',phone]].forEach(function(f){
-      var input = form[f[0]];
-      if(!f[1]){ input.classList.add('invalid'); ok = false; }
-      else input.classList.remove('invalid');
-    });
-    if(!ok){ form.name.value.trim() ? form.phone.focus() : form.name.focus(); return; }
-    var text = 'Здравствуйте, Наиля! Меня зовут ' + name + '. Телефон: ' + phone + '.';
-    if(msg) text += ' Заведение: ' + msg;
-    var url = 'https://wa.me/79037842628?text=' + encodeURIComponent(text);
-    var btn = form.querySelector('.btn');
-    btn.firstChild && (btn.childNodes[0].nodeValue = 'Открываю WhatsApp… ');
-    window.open(url, '_blank', 'noopener');
-  });
-  ['name','phone'].forEach(function(n){
-    form[n].addEventListener('input', function(){ this.classList.remove('invalid'); });
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
